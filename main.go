@@ -130,7 +130,7 @@ func main() {
 		}
 
 		// SSE
-		if resp.Header.Get("Content-Type") == "text/event-stream" {
+		if strings.HasPrefix(resp.Header.Get("Content-Type"), "text/event-stream") {
 
 			chanStream := make(chan []byte, 1)
 			chanError := make(chan error, 1)
